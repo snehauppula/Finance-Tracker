@@ -1,4 +1,4 @@
-Personal Finance Tracker
+Personal Finance-Tracker
 A user-friendly Streamlit web application to analyze and visualize personal spending patterns from CSV transaction data. This app provides an intuitive interface for uploading financial data, applying filters, and generating insightful visualizations to track spending habits effectively.
 Features
 
@@ -25,7 +25,7 @@ NumPy: Numerical operations support.
 Installation
 
 Clone the Repository:
-git clone https://github.com/snehauppula/Finanace-Tracker.git
+git clone (https://github.com/snehauppula/Finanace-Tracker)
 cd Finanace-Tracker
 
 
