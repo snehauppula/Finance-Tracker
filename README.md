@@ -24,9 +24,7 @@ NumPy: Numerical operations support.
 
 Installation
 
-Clone the Repository:
-git clone (https://github.com/snehauppula/Finanace-Tracker)
-cd Finanace-Tracker
+
 
 
 Set Up a Virtual Environment (optional but recommended):
