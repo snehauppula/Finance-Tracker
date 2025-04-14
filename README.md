@@ -49,7 +49,7 @@ Date,Amount,Category
 2025-01-02,20.00,Transport
 
 
-Launch the App:After running the app, open the provided local URL (e.g., http://localhost:8501) in your browser.
+Launch the App:After running the app, open the provided local URL in your browser.
 
 Interact with the App:
 
