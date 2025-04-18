@@ -4,15 +4,12 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-# Set Seaborn style for consistency
 sns.set_style("whitegrid")
-plt.rcParams["font.size"] = 12  # Slightly larger font for readability
+plt.rcParams["font.size"] = 12  
 
-# Title and intro
 st.title("💰 Personal Finance Tracker")
 st.markdown("Analyze your spending patterns with ease—upload your transaction data below!")
 
-# File uploader with improved UX
 file = st.file_uploader(
     "Upload CSV File",
     type=["csv"],
@@ -20,7 +17,6 @@ file = st.file_uploader(
 )
 
 if file is not None:
-    # Load and preprocess data with error handling
     try:
         df = pd.read_csv(file, on_bad_lines='skip')
         if not {'Date', 'Amount', 'Category'}.issubset(df.columns):
@@ -30,7 +26,6 @@ if file is not None:
         st.error(f"Error loading file: {e}")
         st.stop()
 
-    # Data cleaning
     df.fillna({'Amount': 0, 'Category': 'Unknown'}, inplace=True)
     df['Amount'] = pd.to_numeric(df['Amount'], errors='coerce').fillna(0)
     df = df[df['Amount'] >= 0]  # Filter out negatives
@@ -42,7 +37,6 @@ if file is not None:
         st.warning("No valid data after cleaning. Check your file format.")
         st.stop()
 
-    # Sidebar filters with better layout
     st.sidebar.header("🔍 Filters")
     category_options = ["All"] + sorted(df['Category'].unique().tolist())
     category_filter = st.sidebar.selectbox("Category", options=category_options)
@@ -60,10 +54,9 @@ if file is not None:
         else:
             st.sidebar.info("Date range filter unavailable (single date detected).")
 
-    # Tabs for organized layout
     tab1, tab2, tab3 = st.tabs(["📊 Overview", "🍰 Spending Breakdown", "📈 Trends"])
 
-    with tab1:  # Overview
+    with tab1:  
         st.subheader("Data Snapshot")
         col1, col2 = st.columns([3, 1])
         with col1:
@@ -76,7 +69,7 @@ if file is not None:
                 top_spending = df.groupby('Category')['Amount'].sum().max().round(2)
                 st.metric("Top Category", top_category, f"${top_spending:,.2f}", delta_color="off")
 
-    with tab2:  # Spending Breakdown
+    with tab2: 
         st.subheader("Spending by Category")
         if not df.empty:
             col1, col2 = st.columns([1, 2])
@@ -92,7 +85,7 @@ if file is not None:
                 ax.set_title("Spending Distribution", pad=20)
                 st.pyplot(fig)
 
-    with tab3:  # Trends
+    with tab3: 
         if not df['Date'].empty:
             st.subheader("Spending Trends")
             df['Month'] = df['Date'].dt.to_period('M').astype(str)
@@ -129,7 +122,6 @@ if file is not None:
             ax.set_title("Spending by Day and Month", pad=20)
             st.pyplot(fig)
 
-    # Download button
     st.download_button(
         label="⬇️ Download Filtered Data",
         data=df.to_csv(index=False).encode('utf-8'),
@@ -140,6 +132,5 @@ if file is not None:
 else:
     st.info("Please upload a CSV file with 'Date', 'Amount', and 'Category' columns to get started.")
 
-# Footer
 st.markdown("---")
-st.caption("Built with ❤️ using Streamlit | Sneha’s Finance Tracker")
+st.caption("Built on Streamlit | Sneha’s Finance Tracker")
