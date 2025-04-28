@@ -1,7 +1,3 @@
-Of course, Sneha! Here's an **enhanced and polished** version of your README, making it more professional, clear, and appealing:
-
----
-
 # Personal Finance Tracker
 
 A **user-friendly Streamlit web application** designed to help you **analyze and visualize personal spending patterns** directly from CSV transaction data.  
@@ -142,9 +138,7 @@ See the [LICENSE](LICENSE) file for more details.
 - Inspired by the need for **simple, visual personal finance tools**.
 - Thanks to the amazing **open-source community** behind **Pandas**, **Seaborn**, and **Matplotlib**!
 
----
 
-> **Created by Sneha | Personal Finance Tracker**
 
 ---
 
