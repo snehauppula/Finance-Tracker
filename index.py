@@ -131,6 +131,5 @@ if file is not None:
 
 else:
     st.info("Please upload a CSV file with 'Date', 'Amount', and 'Category' columns to get started.")
-
 st.markdown("---")
-st.caption("Built on Streamlit | Sneha’s Finance Tracker")
+st.caption("Built on Streamlit 👩‍💻| Sneha’s Finance Tracker")
